@@ -330,15 +330,6 @@ delete!(sea_lvl, find);
 ```
 
 ```julia
-plot(sea_lvl[:, 1], sea_lvl[:, 2],
-    xlabel = "Date",
-    ylabel = "Sea level",
-    label = false, 
-    title = "Cleaned sea level for 2017 from Port Vila Vanuatu",
-    size = 1200, 500))
-```
-
-```julia
 describe(sea_lvl)
 ```
 
