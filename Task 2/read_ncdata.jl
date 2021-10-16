@@ -55,8 +55,10 @@ SSTglobal[Ti(1)] |> plot
 
 SSTglobal[Lon(Between(120, 280)), Lat(At(0)), Ti(1)] |> plot
 
-test = SSTglobal[Lon(Between(120, 280)), Lat(At(0)), Ti()] 
+test = SSTglobal[Lon(Between(120, 280)), Lat(At(0))] 
+
 test_plot = test |> heatmap
+
 compareplot = heatmap(120:2:280, timelength, test', 
                 title = "Latitude (degrees north): 0",
                 xlabel = "Longitude (degrees east)",
