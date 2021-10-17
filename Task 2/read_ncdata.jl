@@ -8,7 +8,7 @@
  Then form the `GeoArray(sst, dimensions)`.
  Does not have as much metadata etc but can always return to the NCDataset if need be
 =#
-using NCDatasets, GeoData, Glob, Plots, Dates, DimensionalData
+using NCDatasets, GeoData, Glob, Plots, Dates
 
 #First get the data from the .nc files
 
@@ -30,7 +30,7 @@ sst =  globalSST_file["sst"]
 @dim Lon XDim "Longitude (degrees east)"
 lon = 0:2:358
 lat = -88:2:88
-dimensions = (Lon(lon ), Lat(lat), Ti(timelength))
+dimensions = (Lon(lon), Lat(lat), Ti(timelength))
 
 #Have had issues reading this in so try to create a new full .nc filename. Bit of hack but not bad.
 #No longer need this with the new method.
@@ -58,6 +58,8 @@ SSTglobal[Lon(Between(120, 280)), Lat(At(0)), Ti(1)] |> plot
 test = SSTglobal[Lon(Between(120, 280)), Lat(At(0))] 
 
 test_plot = test |> heatmap
+#or
+heatmap(test, color = :balance)
 
 compareplot = heatmap(120:2:280, timelength, test', 
                 title = "Latitude (degrees north): 0",
