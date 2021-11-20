@@ -17,3 +17,6 @@ y = ent_rain_df[1:N, :ent_anom]
 linfit = X \ y
 
 yhat = @. linfit[1] + linfit[2] * x;
+
+## Dimensional array fitting
+
